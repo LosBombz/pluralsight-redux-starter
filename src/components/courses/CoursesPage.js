@@ -23,7 +23,6 @@ class CoursesPage extends React.Component {
         const {courses} = this.props;
         return (
             <div>
-                <h1>Courses</h1>
                 <input
                     type="submit"
                     value="Add Course"

@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import * as authorActions from '../../actions/authorActions';
 import CourseForm from './CourseForm';
+import toastr from 'toastr';
 
 class ManageCoursePage extends React.Component {
     constructor(props, context) {
@@ -40,9 +41,14 @@ class ManageCoursePage extends React.Component {
     saveCourse(event) {
         event.preventDefault();
         this.setState({saving: true});
+        const courseTitle = this.state.course.title;
         this.props.actions.saveCourse(this.state.course).then((res)=>{
             this.setState({saving: false});
+            toastr.success(`Course: "${courseTitle}" Saved`);
             this.redirect('courses');
+        }).catch((error)=>{
+            toastr.error(error);
+            this.setState({saving: false});
         });
 
     }

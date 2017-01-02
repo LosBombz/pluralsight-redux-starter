@@ -13,9 +13,9 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
 
     // since a seperate stylesheet is only utilized for the production build,
     // need to add in the refernce to the <head> here
-    $('head').prepend('<link rel="stylesheet" href="styles.css"');
+    $('head').prepend('<link rel="stylesheet" href="styles.css" />');
 
-    fs.writeFile('dis/index.html', $.html(), 'utf8', function(err) {
+    fs.writeFile('dist/index.html', $.html(), 'utf8', function(err) {
         if(err) {
             return console.log(err);
         }

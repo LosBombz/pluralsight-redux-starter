@@ -21,7 +21,7 @@ export default {
         contentBase: path.resolve(__dirname, 'dist')
     },
     plugins : [
-        new webpack.optimize.OccuranceOrderPlugin(),
+        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin(GLOBALS),
         new ExtractTextPlugin('styles.css'),
         new webpack.optimize.DedupePlugin(),
@@ -35,7 +35,7 @@ export default {
                 loaders: ['babel']
             }, {
                 test: /(\.css)$/,
-                loader: ExtractTextPlugin.extract('css?sourceMap') 
+                loader: ExtractTextPlugin.extract('css?sourceMap')
             }, {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file'
